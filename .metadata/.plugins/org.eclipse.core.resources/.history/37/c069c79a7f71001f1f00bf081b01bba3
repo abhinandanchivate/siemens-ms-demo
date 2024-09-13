@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-server  # Name of the application, registered with Config Server
+  cloud:
+    config:
+      uri: http://config-server:8888  # URL of the Config Server
+      fail-fast: true  # Fail fast if the config server is unavailable
+  profiles:
+    active: dev  # Active profile for the eureka server (dev, prod, etc.)
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: false
+    register-with-eureka: false
+
+# The properties below will be fetched from the Config Server repository

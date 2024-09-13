@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  config-server:
+    image: your-config-server-image
+    container_name: config-server
+    ports:
+      - "8888:8888"
+    environment:
+      SPRING_PROFILES_ACTIVE: git
+
+  eureka-server:
+    image: your-eureka-server-image
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: prod-password
+      MYSQL_DATABASE: flight_search_prod
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  flightsearch:
+    build: .
+    container_name: flight-search-service
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    depends_on:
+      - config-server
+      - eureka-server
+      - mysql
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql-data:

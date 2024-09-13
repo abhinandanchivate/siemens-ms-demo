@@ -1,0 +1,14 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/abhinandanchivate/Siemens-ms-config.git
+          clone-on-start: true
+          password: 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
+          search-paths: '{application}'
+          # Replace with your GitHub configuration repository URL
+          # Make sure this repo contains your config files for each microservice

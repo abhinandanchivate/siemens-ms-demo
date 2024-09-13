@@ -1,0 +1,14 @@
+package com.siemens.configservice.config;
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+            .authorizeRequests()
+            .antMatchers("/actuator/**").permitAll()  // Allow actuator health checks
+            .antMatchers("/config/**").authenticated()
+            .and()
+            .httpBasic();  // Use basic authentication
+    }
+}

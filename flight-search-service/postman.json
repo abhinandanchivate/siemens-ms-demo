@@ -1,0 +1,147 @@
+{
+  "info": {
+    "name": "Flight Search Microservice",
+    "_postman_id": "1234abcd-5678-efgh-9101-ijklmnopqrst",
+    "description": "Postman collection for Flight Search Microservice",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search Flights",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/flights/search?departureCity=New%20York&arrivalCity=Los%20Angeles&departureDate=2024-12-15T00:00:00Z",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights", "search"],
+          "query": [
+            {
+              "key": "departureCity",
+              "value": "New York"
+            },
+            {
+              "key": "arrivalCity",
+              "value": "Los Angeles"
+            },
+            {
+              "key": "departureDate",
+              "value": "2024-12-15T00:00:00Z"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Flight by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/flights/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Flight",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"airline\": \"Airways A\",\n  \"departureCity\": \"New York\",\n  \"arrivalCity\": \"Los Angeles\",\n  \"departureDate\": \"2024-12-15T10:00:00Z\",\n  \"arrivalDate\": \"2024-12-15T13:00:00Z\",\n  \"price\": {\n    \"amount\": 300,\n    \"currency\": \"USD\"\n  },\n  \"seatsAvailable\": 100\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/flights",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Flight by ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": {\n    \"amount\": 320,\n    \"currency\": \"USD\"\n  },\n  \"seatsAvailable\": 90\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/flights/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Flight by ID",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/flights/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Flight Availability by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/flights/availability/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights", "availability", "1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Flight Price by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/flights/price/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "flights", "price", "1"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

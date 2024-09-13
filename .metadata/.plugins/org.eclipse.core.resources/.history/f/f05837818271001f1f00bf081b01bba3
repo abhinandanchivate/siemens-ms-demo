@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/your-repo/config-repo
+          clone-on-start: true
+          search-paths: '{application}'
+          # Replace with your GitHub configuration repository URL
+          # Make sure this repo contains your config files for each microservice
